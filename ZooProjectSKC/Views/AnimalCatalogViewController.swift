@@ -193,16 +193,23 @@ extension AnimalCatalogViewController: UICollectionViewDelegateFlowLayout {
     }
     
   
+
     func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-
         let selectedCategory = categories[indexPath.item]
 
-        print("Categoria selecionada: \(selectedCategory.name)")
-    }
+        let categoryScreen = CategoryViewController(
+            category: selectedCategory,
+            animals: animals
+        )
 
+        navigationController?.pushViewController(
+            categoryScreen,
+            animated: true
+        )
+    }
 
 }
 
