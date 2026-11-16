@@ -8,6 +8,25 @@
 import UIKit
 
 class AnimalCatalogViewController: UIViewController {
+    
+    private let categories: [AnimalCategory] = [
+        AnimalCategory(
+            name: "Mamíferos",
+            species: "Mamífero",
+            imageName: "mamiferos"
+        ),
+        AnimalCategory(
+            name: "Aves",
+            species: "Ave",
+            imageName: "aves"
+        ),
+        AnimalCategory(
+            name: "Répteis",
+            species: "Réptil",
+            imageName: "repteis"
+        )
+    ]
+
 
     // Informações dos Animais
 
@@ -89,10 +108,12 @@ class AnimalCatalogViewController: UIViewController {
 
         collectionView.backgroundColor = .systemBackground
 
+        
         collectionView.register(
-            AnimalCell.self,
-            forCellWithReuseIdentifier: AnimalCell.identifier
+            CategoryCell.self,
+            forCellWithReuseIdentifier: CategoryCell.identifier
         )
+
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -131,25 +152,29 @@ extension AnimalCatalogViewController: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
 
-        return animals.count
+        return categories.count
     }
 
+   
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: AnimalCell.identifier,
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CategoryCell.identifier,
             for: indexPath
-        ) as! AnimalCell
+        ) as? CategoryCell else {
+            return UICollectionViewCell()
+        }
 
-        let animal = animals[indexPath.item]
+        let category = categories[indexPath.item]
 
-        cell.configure(with: animal)
+        cell.configure(with: category)
 
         return cell
     }
+
 }
 
 // Formato do Catálogo
@@ -166,5 +191,18 @@ extension AnimalCatalogViewController: UICollectionViewDelegateFlowLayout {
 
         return CGSize(width: width, height: 205)
     }
+    
+  
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+
+        let selectedCategory = categories[indexPath.item]
+
+        print("Categoria selecionada: \(selectedCategory.name)")
+    }
+
+
 }
 
