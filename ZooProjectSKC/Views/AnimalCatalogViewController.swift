@@ -8,21 +8,21 @@
 import UIKit
 
 class AnimalCatalogViewController: UIViewController {
-    
+  
     private let categories: [AnimalCategory] = [
         AnimalCategory(
             name: "Mamíferos",
-            species: "Mamífero",
+            species: .mammal,
             imageName: "mamiferos"
         ),
         AnimalCategory(
             name: "Aves",
-            species: "Ave",
+            species: .bird,
             imageName: "aves"
         ),
         AnimalCategory(
             name: "Répteis",
-            species: "Réptil",
+            species: .reptile,
             imageName: "repteis"
         )
     ]
@@ -34,7 +34,7 @@ class AnimalCatalogViewController: UIViewController {
 
         Animal(
             name: "Onça-pintada",
-            species: "Mamífero",
+            species: .mammal,
             habitat: "Florestas e áreas alagadas",
             diet: "Carnívora",
             socialBehavior: "Solitária",
@@ -43,7 +43,7 @@ class AnimalCatalogViewController: UIViewController {
 
         Animal(
             name: "Arara-azul",
-            species: "Ave",
+            species: .bird,
             habitat: "Florestas tropicais",
             diet: "Frutas e sementes",
             socialBehavior: "Vive em pares",
@@ -52,7 +52,7 @@ class AnimalCatalogViewController: UIViewController {
 
         Animal(
             name: "Macaco-prego",
-            species: "Mamífero",
+            species: .mammal,
             habitat: "Florestas",
             diet: "Onívoro",
             socialBehavior: "Vive em grupos",
@@ -61,7 +61,7 @@ class AnimalCatalogViewController: UIViewController {
 
         Animal(
             name: "Jacaré",
-            species: "Réptil",
+            species: .reptile,
             habitat: "Rios e áreas alagadas",
             diet: "Carnívoro",
             socialBehavior: "Solitário",

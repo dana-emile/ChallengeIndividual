@@ -56,7 +56,7 @@ final class AnimalDetailViewController: UIViewController {
 
         stackView.addArrangedSubview(animalImageView)
 
-        addInfo(title: "Espécie", value: animal.species)
+        addInfo(title: "Classe", value: animal.species.rawValue)
         addInfo(title: "Habitat", value: animal.habitat)
         addInfo(title: "Alimentação", value: animal.diet)
         addInfo(
