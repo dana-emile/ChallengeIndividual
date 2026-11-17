@@ -8,6 +8,8 @@
 import UIKit
 
 final class CategoryViewController: UIViewController {
+    
+    
 
     private let category: AnimalCategory
     private let animals: [Animal]
@@ -98,21 +100,26 @@ extension CategoryViewController: UICollectionViewDataSource {
         return filteredAnimals.count
     }
 
+    
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: AnimalCell.identifier,
             for: indexPath
-        ) as! AnimalCell
+        ) as? AnimalCell else {
+            return UICollectionViewCell()
+        }
 
         let animal = filteredAnimals[indexPath.item]
+
         cell.configure(with: animal)
 
         return cell
     }
+
 }
 
 // Interação e layout
