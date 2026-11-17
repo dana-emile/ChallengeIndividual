@@ -10,9 +10,10 @@ import Foundation
 
 struct Animal {
     let name: String
-    let species: String
+    let species: AnimalSpecies
     let habitat: String
     let diet: String
     let socialBehavior: String
     let imageName: String
 }
+

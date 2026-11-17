@@ -93,7 +93,7 @@ class AnimalCell: UICollectionViewCell {
 
     func configure(with animal: Animal) {
         nameLabel.text = animal.name
-        speciesLabel.text = animal.species
+        speciesLabel.text = animal.species.rawValue
         animalImageView.image = UIImage(named: animal.imageName)
     }
 }
