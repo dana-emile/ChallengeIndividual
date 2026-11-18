@@ -19,6 +19,8 @@ struct ContentView: View {
 
 struct ZooNavigationController: UIViewControllerRepresentable {
 
+    // Gerencia o caminho entre as telas.
+    
     func makeUIViewController(context: Context) -> UINavigationController {
 
         let welcome = WelcomeViewController()

@@ -85,7 +85,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         setupInterface()
-        setupAnimations()
+      
     }
 
     // Ajustes da interface
@@ -202,39 +202,6 @@ class WelcomeViewController: UIViewController {
             action: #selector(enterCatalog),
             for: .touchUpInside
         )
-    }
-
-    // Animações
-
-    private func setupAnimations() {
-
-        titleLabel.alpha = 0
-        subtitleLabel.alpha = 0
-        enterButton.alpha = 0
-
-        UIView.animate(
-            withDuration: 1.2,
-            delay: 0.2,
-            options: .curveEaseOut
-        ) {
-            self.titleLabel.alpha = 1
-        }
-
-        UIView.animate(
-            withDuration: 1.2,
-            delay: 0.7,
-            options: .curveEaseOut
-        ) {
-            self.subtitleLabel.alpha = 1
-        }
-
-        UIView.animate(
-            withDuration: 1.2,
-            delay: 1.1,
-            options: .curveEaseOut
-        ) {
-            self.enterButton.alpha = 1
-        }
     }
 
     // Navegação
